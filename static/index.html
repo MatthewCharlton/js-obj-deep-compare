@@ -145,17 +145,16 @@
           }
         }
       };
-      console.log('Lodash');
+      console.time('Lodash');
       console.log(
         _.isEqual(
           (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
-            'Matt'),
+            'Blah'),
           (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
             'Matt')
         )
       );
-      const finish = performance.now();
-      console.log(finish - start);
+      console.timeEnd('Lodash');
     </script>
     <script src="index.js"></script>
   </body>

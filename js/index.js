@@ -140,19 +140,17 @@ const obj1 = {
 import('../pkg/index.js')
   .then(module => {
     (async () => {
-      const start = performance.now();
-      console.log('wasm');
+      console.time('wasm');
       console.log(
         module.is_equal(
           (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
-            'Matt'),
+            'Blah'),
           (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
             'Matt'),
           true
         )
       );
-      const finish = performance.now();
-      console.log(finish - start);
+      console.timeEnd('wasm');
     })();
   })
   .catch(console.error);
