@@ -9,113 +9,29 @@
     <script>
       const start = performance.now();
       const func = () => {};
-      console.log('Lodash');
-      console.log(
-        _.isEqual(
-          {
-            id: 101,
-            email: 'jack@dev.com',
-            func: func,
-            personalInfo: {
-              name: 'Jack',
-              address: {
-                line1: 'westwish st',
-                line2: 'washmasher',
-                city: 'wallas',
-                state: 'WX'
-              },
-              personalInfo: {
-                name: 'Jack',
-                address: {
-                  line1: 'westwish st',
-                  line2: 'washmasher',
-                  city: 'wallas',
-                  state: 'WX'
-                },
-                personalInfo: {
-                  name: 'Jack',
-                  address: {
-                    line1: 'westwish st',
-                    line2: 'washmasher',
-                    city: 'wallas',
-                    state: 'WX'
-                  },
-                  personalInfo: {
-                    name: 'Jack',
-                    address: {
-                      line1: 'westwish st',
-                      line2: 'washmasher',
-                      city: 'wallas',
-                      state: 'WX'
-                    },
-                    personalInfo: {
-                      name: 'Jack',
-                      address: {
-                        line1: 'westwish st',
-                        line2: 'washmasher',
-                        city: 'wallas',
-                        state: 'WX'
-                      },
-                      deep: {
-                        id: 101,
-                        email: 'jack@dev.com',
-                        func: func,
-                        personalInfo: {
-                          name: 'Jack',
-                          address: {
-                            line1: 'westwish st',
-                            line2: 'washmasher',
-                            city: 'wallas',
-                            state: 'WX'
-                          },
-                          personalInfo: {
-                            name: 123,
-                            address: {
-                              line1: 'westwish st',
-                              line2: 'washmasher',
-                              city: 'wallas',
-                              state: 'WX'
-                            },
-                            personalInfo: {
-                              name: 'Jack',
-                              address: {
-                                line1: 'westwish st',
-                                line2: 'washmasher',
-                                city: 'wallas',
-                                state: 'WX'
-                              },
-                              personalInfo: {
-                                name: 'Jack',
-                                address: {
-                                  line1: 'westwish st',
-                                  line2: 'washmasher',
-                                  city: 'wallas',
-                                  state: 'WX'
-                                },
-                                personalInfo: {
-                                  name: 'Jack',
-                                  address: {
-                                    line1: 'westwish st',
-                                    line2: 'washmasher',
-                                    city: 'wallas',
-                                    state: 'WX'
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+      const date = new Date();
+      const obj1 = {
+        id: 101,
+        email: 'jack@dev.com',
+        func: func,
+        date: date,
+        arr: [1, 2, 3],
+        personalInfo: {
+          name: 'Jack',
+          address: {
+            line1: 'westwish st',
+            line2: 'washmasher',
+            city: 'wallas',
+            state: 'WX'
           },
-          {
-            id: 101,
-            email: 'jack@dev.com',
-            func: func,
+          personalInfo: {
+            name: 'Jack',
+            address: {
+              line1: 'westwish st',
+              line2: 'washmasher',
+              city: 'wallas',
+              state: 'WX'
+            },
             personalInfo: {
               name: 'Jack',
               address: {
@@ -140,14 +56,10 @@
                     city: 'wallas',
                     state: 'WX'
                   },
-                  personalInfo: {
-                    name: 'Jack',
-                    address: {
-                      line1: 'westwish st',
-                      line2: 'washmasher',
-                      city: 'wallas',
-                      state: 'WX'
-                    },
+                  deep: {
+                    id: 101,
+                    email: 'jack@dev.com',
+                    func: func,
                     personalInfo: {
                       name: 'Jack',
                       address: {
@@ -156,10 +68,14 @@
                         city: 'wallas',
                         state: 'WX'
                       },
-                      deep: {
-                        id: 101,
-                        email: 'jack@dev.com',
-                        func: func,
+                      personalInfo: {
+                        name: 123,
+                        address: {
+                          line1: 'westwish st',
+                          line2: 'washmasher',
+                          city: 'wallas',
+                          state: 'WX'
+                        },
                         personalInfo: {
                           name: 'Jack',
                           address: {
@@ -169,13 +85,18 @@
                             state: 'WX'
                           },
                           personalInfo: {
-                            name: 123,
+                            name: 'Jack',
                             address: {
                               line1: 'westwish st',
                               line2: 'washmasher',
                               city: 'wallas',
                               state: 'WX'
                             },
+                            id: 101,
+                            email: 'jack@dev.com',
+                            func: func,
+                            date: date,
+                            arr: [1, 2, 3],
                             personalInfo: {
                               name: 'Jack',
                               address: {
@@ -184,6 +105,11 @@
                                 city: 'wallas',
                                 state: 'WX'
                               },
+                              id: 101,
+                              email: 'jack@dev.com',
+                              func: func,
+                              date: date,
+                              arr: [1, 2, 3],
                               personalInfo: {
                                 name: 'Jack',
                                 address: {
@@ -192,6 +118,11 @@
                                   city: 'wallas',
                                   state: 'WX'
                                 },
+                                id: 101,
+                                email: 'jack@dev.com',
+                                func: func,
+                                date: date,
+                                arr: [1, 2, 3],
                                 personalInfo: {
                                   name: 'Jack',
                                   address: {
@@ -212,6 +143,15 @@
               }
             }
           }
+        }
+      };
+      console.log('Lodash');
+      console.log(
+        _.isEqual(
+          (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
+            'Matt'),
+          (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
+            'Matt')
         )
       );
       const finish = performance.now();
