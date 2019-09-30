@@ -7,9 +7,13 @@
   </head>
   <body>
     <script>
-      const start = performance.now();
       const func = () => {};
       const date = new Date();
+
+      const testObj = {
+        blah: 'test'
+      };
+
       const obj1 = {
         id: 101,
         email: 'jack@dev.com',
@@ -145,15 +149,11 @@
           }
         }
       };
+
+      const obj2 = Object.assign({}, obj1, { date: new Date(), testObj });
+
       console.time('Lodash');
-      console.log(
-        _.isEqual(
-          (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
-            'Blah'),
-          (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
-            'Matt')
-        )
-      );
+      console.log(_.isEqual(obj1, obj2));
       console.timeEnd('Lodash');
     </script>
     <script src="index.js"></script>

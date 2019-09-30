@@ -1,6 +1,10 @@
 const func = () => {};
 const date = new Date();
 
+const testObj = {
+  blah: 'test'
+};
+
 const obj1 = {
   id: 101,
   email: 'jack@dev.com',
@@ -137,19 +141,13 @@ const obj1 = {
   }
 };
 
+const obj2 = Object.assign({}, obj1, { date: new Date(), testObj });
+
 import('../pkg/index.js')
   .then(module => {
     (async () => {
       console.time('wasm');
-      console.log(
-        module.is_equal(
-          (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
-            'Blah'),
-          (obj1.personalInfo.personalInfo.personalInfo.personalInfo.personalInfo.name =
-            'Matt'),
-          true
-        )
-      );
+      console.log(module.is_equal(obj1, obj2, true));
       console.timeEnd('wasm');
     })();
   })

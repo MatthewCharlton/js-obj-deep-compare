@@ -10,13 +10,20 @@ pub fn is_equal(
 ) -> Result<bool, JsValue> {
     let mut result = bool::from(initial);
 
-    if obj1 == obj2 {
-        return Ok(true);
-    } else if obj1.is_object() & obj2.is_object() {
+    if obj1.to_string() != obj2.to_string() {
+        // console::log_2(&"obj1:".into(), &obj1.to_string());
+        // console::log_2(&"obj2:".into(), &obj2.to_string());
+        return Ok(false);
+    } else if obj1.is_object() && obj2.is_object() {
         let obj1_keys = &js_sys::Object::keys(obj1);
         let obj2_keys = &js_sys::Object::keys(obj2);
 
+        // console::log_2(&"obj1_keys:".into(), &obj1_keys);
+        // console::log_2(&"obj2_keys:".into(), &obj2_keys);
+
         if obj1_keys.length() != obj2_keys.length() {
+            // console::log_2(&"obj1_keys:".into(), &obj1_keys.to_string());
+            // console::log_2(&"obj2_keys:".into(), &obj2_keys.to_string());
             return Ok(false);
         } else {
             let obj1_iterator =
@@ -50,7 +57,11 @@ pub fn is_equal(
 
                     // console::log_2(&"eq:".into(), &JsValue::from_bool(&obj1 == &obj2));
 
-                    if val1.is_object() & val2.is_object() {
+                    if val1 == val2 {
+                        // console::log_2(&" same val1:".into(), &val1);
+                        // console::log_2(&" same val2:".into(), &val2);
+                        result = result & true;
+                    } else if val1.is_object() & val2.is_object() {
                         // console::log_2(&"val1:".into(), &val1);
                         // console::log_2(&"val2:".into(), &val2);
                         result = is_equal(
@@ -58,14 +69,10 @@ pub fn is_equal(
                             &js_sys::Object::from(val2),
                             js_sys::Boolean::from(result),
                         )?;
-                    } else if val1 != val2 {
+                    } else {
                         // console::log_2(&"Not same val1:".into(), &val1);
                         // console::log_2(&"Not same val2:".into(), &val2);
                         return Ok(false);
-                    } else {
-                        // console::log_2(&" same val1:".into(), &val1);
-                        // console::log_2(&" same val2:".into(), &val2);
-                        result = result & true;
                     }
 
                     // console::log_2(
@@ -76,7 +83,7 @@ pub fn is_equal(
             }
         }
     } else {
-        return Ok(false);
+        result = result & true;
     }
 
     Ok(result)
